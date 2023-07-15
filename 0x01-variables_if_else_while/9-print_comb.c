@@ -1,3 +1,8 @@
+/*
+ * File: 9-print_comb.c
+ * Auth: Brennan D Baraban
+ */
+
 #include <stdio.h>
 
 /**
@@ -7,17 +12,16 @@
  */
 int main(void)
 {
-	int a;
+	int num;
 
-	for (a = 0; a < 10; a++)
+	for (num = 0; num <= 9; num++)
 	{
-	putchar(a + '0');
-	if (a < 10)
-		continue;
-		{
-	putchar(',');
-	putchar(' ');
-		}
+		putchar((num % 10) + '0');
+		if (num == 9)
+			continue;
+		
+		putchar(',');
+		putchar(' ');
 	}
 
 	putchar('\n');
