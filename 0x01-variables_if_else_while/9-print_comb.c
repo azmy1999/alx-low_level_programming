@@ -1,30 +1,42 @@
-/*
- * File: 9-print_comb.c
- * Auth: Brennan D Baraban
- */
-
 #include <stdio.h>
+int main() {
+// use putchar to print numbers from 0 to 9 separated by ", "
+putchar('0');
+putchar(',');
+putchar(' ');
+putchar('1');
+putchar(',');
+putchar(' ');
 
-/**
- * main - Prints all possible combinations of single-digit numbers.
- *
- * Return: Always 0.
- */
-int main(void)
-{
-	int num;
+putchar('2');
+putchar(',');
+putchar(' ');
 
-	for (num = 0; num <= 9; num++)
-	{
-		putchar((num % 10) + '0');
-		if (num == 9)
-			continue;
-		
-		putchar(',');
-		putchar(' ');
-	}
+putchar('3');
+putchar(',');
+putchar(' ');
 
-	putchar('\n');
+putchar('4');
+putchar(',');
+putchar(' ');
 
-	return (0);
+putchar('5');
+putchar(',');
+putchar(' ');
+
+putchar('6');
+putchar(',');
+putchar(' ');
+
+putchar('7');
+putchar(',');
+putchar(' ');
+
+putchar('8');
+putchar(',');
+putchar(' ');
+
+putchar('9');
+
+return 0;
 }
