@@ -1,71 +1,46 @@
 #include "holberton.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 /**
- * _strcat - Concat string, src appended to dest
- *
- * @dest: Destination string
- * @src: Source string
- * Return: Concat newString to dest
+ * argstostr - concatenates all the arguments of your program
+ *@ac: number of arguments
+ *@av: arguments
+ * Return: a pointer to a new string
  */
-char *_strcat(char *dest, char *src)
-{
-        int a, b;
-
-        for (a = 0; dest[a] != '\0'; a++)
-                ;
-        for (b = 0; src[b] != '\0'; b++)
-        {
-                dest[a] = src[b];
-                a++;
-        }
-        return (dest);
-}
-
-/**
- * _strlen - Return the number of the length of the string
- *
- * @s: This is the string to check
- *
- * Return: Return the length of the string
- */
-int _strlen(char *s)
-{
-	int a;
-
-	for (a = 0; s[a] != '\0'; a++)
-		;
-	return (a);
-}
-
-/**
- * argstostr - Concats argv to new string
- *
- * @ac: Argument count
- * @av: Arguments
- *
- * Return: Returns a pointer to a new string, or NULL if it fails
- */
-
 char *argstostr(int ac, char **av)
 {
-	int index, sumString;
-	char *newString;
+	int i;
+	int j;
+	char *p = NULL;
+	int k;
+	int ext;
 
-	sumString = 1;
-
+	k = 0;
+	ext = 0;
 	if (ac == 0 || av == NULL)
-		return (0);
-	for (index = 0; index < ac && av[index]; index++)
-	{
-		sumString += _strlen(av[index]);
-	}
-	newString = malloc((sumString * sizeof(char)) + ac);
-	for (index = 0; index < ac && av[index]; index++)
-	{
-		newString = _strcat(newString, av[index]);
-		newString = _strcat(newString, "\n");
-	}
-	if (newString == NULL)
 		return (NULL);
-	return (newString);
+	for (i = 0; i < ac; i++)
+	{
+		for (j = 0; av[i][j] != '\0'; j++)
+		{
+			ext++;
+		}
+	}
+
+	p = (char *)malloc(ext + ac + 1 * sizeof(char));
+	if (p == NULL)
+		return (NULL);
+	for (i = 0; i < ac; i++)
+	{
+		for (j = 0; av[i][j] != '\0'; j++)
+		{
+			p[k] = av[i][j];
+			k++;
+		}
+		p[k] = '\n';
+		k++;
+	}
+	p[k] = '\0';
+	return (p);
 }
