@@ -1,16 +1,13 @@
-#include "holberton.h"
 #include <stdio.h>
 
 /**
- * main - Prints the name of the program
- * @argc: Number of command line arguments
- * @argv: Array name
- * Return: 0
+ * main - function
+ * @argc: number of arguments passed
+ * Return: Always 0
+ * @argv: arguments passed here
  */
-
-int main(int argc, char *argv[])
+int main(int argc, char __attribute__((unused)) *argv[])
 {
-	printf("%s\n", argv[argc * 0]);
-
+	printf("%d\n", argc - 1);
 	return (0);
 }
